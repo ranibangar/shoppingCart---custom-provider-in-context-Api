@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Navbar from "./components/navbar";
+import Items from "./components/items";
+import CustomProvider from "./itemContext";
+import { useValue } from "./itemContext";
 function App() {
+  const {total} = useValue();
+console.log("total",total);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <CustomProvider>
+    <div>
+      <h1>Shooping Cart</h1>
+      <Navbar />
+      <Items />
     </div>
+    </CustomProvider>
+    </>
   );
 }
 
